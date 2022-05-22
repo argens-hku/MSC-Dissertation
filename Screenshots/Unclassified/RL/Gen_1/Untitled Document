@@ -1,0 +1,32 @@
+network, bidding:	Trained with preset hand 0, rewarded by 1 in successful moves, 0 by unsuccessful moves
+
+network2, bidding2:	2 identical agents; 2 dummies; 100000 iterations, train and save fter each iteration
+					successful moves rewarded by 1, unfeasible moves rewarded by 0, else unchanged
+
+
+^^^^ Network = 
+		model = Sequential ()
+		model.add (Dense (LAYER0, input_shape = (220,))) #52 + (SHDC + AKOJT9s + AKs = 4 + 6 + 8) * 3 + 38 * 3
+		model.add (Dense (LAYER1, activation = 'linear', kernel_regularizer = regularizers.l2(L2_REGULARIZER)))
+		model.add (Dense (LAYER2, activation = 'linear', kernel_regularizer = regularizers.l2(L2_REGULARIZER)))
+		model.add (Dense (LAYER3, activation = 'linear', kernel_regularizer = regularizers.l2(L2_REGULARIZER)))
+		model.add (Dense (LAYER4, activation = 'linear', kernel_regularizer = regularizers.l2(L2_REGULARIZER)))
+		model.add (Dense (38, activation = 'sigmoid'))
+		sgd = optimizers.SGD (lr = 0.01)
+		model.compile (loss = 'mse', optimizer = sgd)
+
+
+network3, network4, no_bidding:	100,000 episodes stats are given. 2 networks are kept which are always the 2 most updated networks
+								each game one netowkr is updated. Whenever a bid results in -ve less than par score.
+
+		model.add (Dense (LAYER0, input_shape = (220,)))
+		model.add (Dense (LAYER1, activation = 'relu', kernel_regularizer = regularizers.l2(L2_REGULARIZER)))
+		model.add (BatchNormalization ())
+		model.add (Dense (LAYER2, activation = 'relu', kernel_regularizer = regularizers.l2(L2_REGULARIZER)))
+		model.add (BatchNormalization ())
+		model.add (Dense (LAYER3, activation = 'relu', kernel_regularizer = regularizers.l2(L2_REGULARIZER)))
+		model.add (BatchNormalization ())
+		model.add (Dense (LAYER4, activation = 'relu', kernel_regularizer = regularizers.l2(L2_REGULARIZER)))
+		model.add (Dense (38, activation = 'sigmoid'))
+		sgd = optimizers.SGD (lr = 0.01)
+		model.compile (loss = 'mse', optimizer = sgd)

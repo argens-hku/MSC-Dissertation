@@ -1,0 +1,413 @@
+
+<!-- saved from url=(0109)http://webcache.googleusercontent.com/search?q=cache:http://www.mini.pw.edu.pl/~mandziuk/PRACE/ICAISC04-2.pdf -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body{margin-left:0;margin-right:0;margin-top:0}#bN015htcoyT__google-cache-hdr{background:#f5f5f5;font:13px arial,sans-serif;text-align:left;color:#202020;border:0;margin:0;border-bottom:1px solid #cecece;line-height:16px;padding:16px 28px 24px 28px}#bN015htcoyT__google-cache-hdr *{display:inline;font:inherit;text-align:inherit;color:inherit;line-height:inherit;background:none;border:0;margin:0;padding:0;letter-spacing:0}#bN015htcoyT__google-cache-hdr a{text-decoration:none;color:#1a0dab}#bN015htcoyT__google-cache-hdr a:hover{text-decoration:underline}#bN015htcoyT__google-cache-hdr a:visited{color:#609}#bN015htcoyT__google-cache-hdr div{display:block;margin-top:4px}#bN015htcoyT__google-cache-hdr b{font-weight:bold;display:inline-block;direction:ltr}</style></head><body bgcolor="#ffffff" vlink="blue" link="blue"><div id="bN015htcoyT__google-cache-hdr"><div><span>這是 <a href="http://www.mini.pw.edu.pl/~mandziuk/PRACE/ICAISC04-2.pdf">http://www.mini.pw.edu.pl/~mandziuk/PRACE/ICAISC04-2.pdf</a> 檔案的 HTML 版本。Google 在檢索網路時會自動產生文件的 HTML 版本。</span></div><span style="display:inline-block;margin-top:8px;color:#717171"><span>提示：如要在這個網頁上快速尋找您的搜尋字詞，請按 <b>Ctrl+F</b> 鍵或 <b>⌘-F</b> 鍵 (Mac)，然後使用尋找列進行搜尋。</span></span></div><div style="position:relative;">
+
+
+<meta name="CreationDate" content="D:20040309093757+01&#39;00&#39;">
+<meta name="ModDate" content="D:20040309093757+01&#39;00&#39;">
+<meta name="Producer" content="Acrobat Distiller 5.0.5 (Windows)">
+<meta name="Creator" content="dvips(k) 5.90a Copyright 2002 Radical Eye Software">
+<meta name="Title" content="dd_bridge_final.dvi">
+<title>Artificial Neural Networks for Solving Double Dummy Bridge Problems</title>
+
+<table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="1"><b>Page 1</b></a></font></td></tr></tbody></table><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:349;left:218"><nobr><b>Artificial Neural Networks for Solving Double</b></nobr></div>
+<div style="position:absolute;top:376;left:326"><nobr><b>Dummy Bridge Problems</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:432;left:316"><nobr>Krzysztof Mossakowski and Jacek Mandziuk</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:465;left:208"><nobr>Faculty of Mathematics and Information Science, Warsaw University of Technology,</nobr></div>
+<div style="position:absolute;top:481;left:321"><nobr>Plac Politechniki 1, 00-661 Warsaw, POLAND</nobr></div>
+<div style="position:absolute;top:494;left:338"><nobr><i>{</i>mossakow, mandziuk<i>}</i>@mini.pw.edu.pl</nobr></div>
+<div style="position:absolute;top:539;left:245"><nobr><b>Abstract. </b>This paper describes the results of applying artificial neu-</nobr></div>
+<div style="position:absolute;top:559;left:245"><nobr>ral networks to the double dummy bridge problem. Several feedforward</nobr></div>
+<div style="position:absolute;top:575;left:245"><nobr>neural networks were trained using resilient backpropagation algorithm</nobr></div>
+<div style="position:absolute;top:592;left:245"><nobr>to estimate the number of tricks to take by players <i>NS </i>in fully revealed</nobr></div>
+<div style="position:absolute;top:608;left:245"><nobr>contract bridge deals. Training deals were the only data presented to the</nobr></div>
+<div style="position:absolute;top:625;left:245"><nobr>networks. The best networks were able to perfectly point the number of</nobr></div>
+<div style="position:absolute;top:641;left:245"><nobr>tricks in more than one third of deals and gained about 80% accuracy</nobr></div>
+<div style="position:absolute;top:658;left:245"><nobr>when one trick error was permitted. Only in less than 5% of deals the</nobr></div>
+<div style="position:absolute;top:674;left:245"><nobr>error exceeded 2 tricks.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:714;left:202"><nobr><b>1 Introduction</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:746;left:202"><nobr>This paper presents the first step on the way to construct a computer program</nobr></div>
+<div style="position:absolute;top:764;left:202"><nobr>playing the game of contract bridge, using artificial neural networks. The first</nobr></div>
+<div style="position:absolute;top:782;left:202"><nobr>step relies on a verification of neural networks’ ability to estimate the number</nobr></div>
+<div style="position:absolute;top:800;left:202"><nobr>of tricks that can be taken by one pair of players in a deal, in assumption of</nobr></div>
+<div style="position:absolute;top:818;left:202"><nobr>optimal play of all players. The problem is simplified by revealing all hands - the</nobr></div>
+<div style="position:absolute;top:836;left:202"><nobr>so-called <i>double dummy problem</i>.</nobr></div>
+<div style="position:absolute;top:854;left:225"><nobr>The next step in a construction of a contract bridge program, will be an</nobr></div>
+<div style="position:absolute;top:872;left:202"><nobr>estimation of a number of tricks during and after bidding. In this step only</nobr></div>
+<div style="position:absolute;top:890;left:202"><nobr>partial information about other players’ hands will be available.</nobr></div>
+<div style="position:absolute;top:908;left:225"><nobr>The most important, and also the most interesting issue in contract bridge,</nobr></div>
+<div style="position:absolute;top:926;left:202"><nobr>is a play. A game strategy, good enough to win, or to have the biggest chance to</nobr></div>
+<div style="position:absolute;top:944;left:202"><nobr>win, regardless of opponents play, should be developed. The play would be the</nobr></div>
+<div style="position:absolute;top:961;left:202"><nobr>third part of a construction of a computer program playing contract bridge.</nobr></div>
+<div style="position:absolute;top:979;left:225"><nobr>There are many computer programs playing the game of a contract bridge,</nobr></div>
+<div style="position:absolute;top:997;left:202"><nobr>unfortunately most of them are much worse than human players. To the best of</nobr></div>
+<div style="position:absolute;top:1015;left:202"><nobr>our knowledge there are only two of them that can win against strong amateur-</nobr></div>
+<div style="position:absolute;top:1033;left:202"><nobr>level players: Bridge Baron [1] and GIB [2]. GIB, Ginsberg’s Intelligent Bridge-</nobr></div>
+<div style="position:absolute;top:1051;left:202"><nobr>player, also succeeded in playing against professionals. We are not aware of any</nobr></div>
+<div style="position:absolute;top:1069;left:202"><nobr>program developed based on neural networks playing at the “decent” level.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:1109;left:202"><nobr><b>2 The Data</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:1141;left:202"><nobr>The data used in solving double dummy bridge problems was taken from GIB</nobr></div>
+<div style="position:absolute;top:1159;left:202"><nobr>Library [3], which includes 717<i>, </i>102 deals with revealed all hands. Additionally</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:1438;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="2"><b>Page 2</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:1616;left:202"><nobr>the library provides a number of tricks taken by the pair <i>NS </i>for each deal under</nobr></div>
+<div style="position:absolute;top:1634;left:202"><nobr>the assumption of a perfect play of both parties. In all experiments the attention</nobr></div>
+<div style="position:absolute;top:1652;left:202"><nobr>was fixed on a number of tricks taken by a pair <i>NS </i>with <i>W </i>player defender’s</nobr></div>
+<div style="position:absolute;top:1670;left:202"><nobr>lead for notrump play.</nobr></div>
+<div style="position:absolute;top:1688;left:225"><nobr>The set of deals was divided into three groups. The first 500<i>, </i>000 deals were</nobr></div>
+<div style="position:absolute;top:1706;left:202"><nobr>assigned to training. Deals numbered from 500<i>, </i>001 to 600<i>, </i>000 were assigned to</nobr></div>
+<div style="position:absolute;top:1724;left:202"><nobr>validation, and the rest of deals to testing. Usually the training set contained</nobr></div>
+<div style="position:absolute;top:1742;left:202"><nobr>10<i>, </i>000 deals, however for some number of networks 100<i>, </i>000 deals were used.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:1789;left:202"><nobr><b>3 Neural Networks</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:1828;left:202"><nobr>In all experiments feed-forward networks created, trained and tested using JNNS</nobr></div>
+<div style="position:absolute;top:1846;left:202"><nobr>(Java Neural Network Simulator) [4] were used. In most cases logistic (unipolar</nobr></div>
+<div style="position:absolute;top:1864;left:202"><nobr>sigmoid) activation function was used for all neurons except for the case of</nobr></div>
+<div style="position:absolute;top:1882;left:202"><nobr>representation of data using negative numbers, where the hyperbolic tangent</nobr></div>
+<div style="position:absolute;top:1900;left:202"><nobr>(bipolar sigmoid) activation function was applied.</nobr></div>
+<div style="position:absolute;top:1918;left:225"><nobr>The number of input neurons was specified by the chosen method of deal’s</nobr></div>
+<div style="position:absolute;top:1936;left:202"><nobr>representation. The numbers of hidden layers and neurons varied. In most of the</nobr></div>
+<div style="position:absolute;top:1954;left:202"><nobr>experiments the output layer was composed of a single neuron representing the</nobr></div>
+<div style="position:absolute;top:1972;left:202"><nobr>estimated number of tricks taken by a pair <i>NS</i>. All networks were trained using</nobr></div>
+<div style="position:absolute;top:1990;left:202"><nobr>Rprop algorithm[5], with the following choice of method’s parameters: initial</nobr></div>
+<div style="position:absolute;top:2008;left:202"><nobr>and maximum values of an update-value factor were equal to 0<i>.</i>1 and 50<i>.</i>0, resp.,</nobr></div>
+<div style="position:absolute;top:2026;left:202"><nobr>and weight decay parameter was equal to 1<i>E − </i>4.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:2072;left:202"><nobr><b>4 Experiment Description and Results</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:2112;left:202"><nobr>In this section results of several experiments with various ways of coding a deal</nobr></div>
+<div style="position:absolute;top:2129;left:202"><nobr>(hands’ cards) and the ways of coding an estimated number of tricks to be taken</nobr></div>
+<div style="position:absolute;top:2147;left:202"><nobr>are described. All results are presented in the form: [(<i>A | B | C</i>), (<i>D | E | F</i>)].</nobr></div>
+<div style="position:absolute;top:2165;left:202"><nobr>The first three numbers represent resp. the fractions <i>in percent </i>of training deals</nobr></div>
+<div style="position:absolute;top:2183;left:202"><nobr>for which the network was mistaken by no more than 2 tricks (<i>A</i>%), no more than</nobr></div>
+<div style="position:absolute;top:2201;left:202"><nobr>1 trick (<i>B</i>%) and was perfectly right (<i>C</i>%). The other three numbers indicate</nobr></div>
+<div style="position:absolute;top:2219;left:202"><nobr>analogous results for testing data.</nobr></div>
+<div style="position:absolute;top:2265;left:202"><nobr><b>4.1 Coding a Deal</b></nobr></div>
+<div style="position:absolute;top:2296;left:202"><nobr>Two approaches to coding a deal as a set of real numbers suitable for neural</nobr></div>
+<div style="position:absolute;top:2314;left:202"><nobr>network input representation were applied.</nobr></div>
+<div style="position:absolute;top:2332;left:225"><nobr>In the first approach each card of each hand was represented by two real num-</nobr></div>
+<div style="position:absolute;top:2350;left:202"><nobr>bers: the value (2, 3,<i>...</i>, <i>King</i>, <i>Ace</i>) and the suit (<i>Spades</i>, <i>Hearts</i>, <i>Diamonds</i>,</nobr></div>
+<div style="position:absolute;top:2368;left:202"><nobr><i>Clubs</i>). Both real numbers were calculated using a uniform linear transformation</nobr></div>
+<div style="position:absolute;top:2386;left:202"><nobr>to the range [0<i>.</i>1<i>, </i>0<i>.</i>9] (ranges [0<i>, </i>1] and [0<i>.</i>2<i>, </i>0<i>.</i>8] were also tested, but no signifi-</nobr></div>
+<div style="position:absolute;top:2404;left:202"><nobr>cant difference was noticed). Representation of each hand required 26 values, so</nobr></div>
+<div style="position:absolute;top:2422;left:202"><nobr>the total number of input values was 104 (26x4). The simplest neural network,</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:2701;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="3"><b>Page 3</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:2871;left:202"><nobr><b>Table 1. </b>Results obtained for various coding schemes and network architectures. Col-</nobr></div>
+<div style="position:absolute;top:2891;left:202"><nobr>umn denoted by <i>D </i>represents the number of training deals.</nobr></div>
+<div style="position:absolute;top:2922;left:254"><nobr>Network type</nobr></div>
+<div style="position:absolute;top:2922;left:468"><nobr>Results (in %)</nobr></div>
+<div style="position:absolute;top:2919;left:672"><nobr><i>D</i></nobr></div>
+<div style="position:absolute;top:2939;left:249"><nobr>(26x4)-(13x4)-1</nobr></div>
+<div style="position:absolute;top:2939;left:377"><nobr>[(94<i>.</i>77 <i>| </i>77<i>.</i>45 <i>| </i>31<i>.</i>91)<i>, </i>(94<i>.</i>77 <i>| </i>77<i>.</i>50 <i>| </i>32<i>.</i>05)] 100<i>, </i>000</nobr></div>
+<div style="position:absolute;top:2956;left:221"><nobr>(26x4)-(13x4)-(7x4)-13-1 [(96<i>.</i>02 <i>| </i>80<i>.</i>14 <i>| </i>33<i>.</i>57)<i>, </i>(93<i>.</i>87 <i>| </i>75<i>.</i>70 <i>| </i>31<i>.</i>04)] 10<i>, </i>000</nobr></div>
+<div style="position:absolute;top:2973;left:283"><nobr>52-1</nobr></div>
+<div style="position:absolute;top:2973;left:377"><nobr>[(94<i>.</i>17 <i>| </i>76<i>.</i>22 <i>| </i>31<i>.</i>06)<i>, </i>(94<i>.</i>15 <i>| </i>76<i>.</i>15 <i>| </i>31<i>.</i>29)] 100<i>, </i>000</nobr></div>
+<div style="position:absolute;top:2990;left:273"><nobr>52-25-1</nobr></div>
+<div style="position:absolute;top:2990;left:377"><nobr>[(96<i>.</i>27 <i>| </i>81<i>.</i>02 <i>| </i>34<i>.</i>60)<i>, </i>(95<i>.</i>81 <i>| </i>79<i>.</i>95 <i>| </i>34<i>.</i>02)] 100<i>, </i>000</nobr></div>
+<div style="position:absolute;top:3008;left:279"><nobr>104-1</nobr></div>
+<div style="position:absolute;top:3008;left:377"><nobr>[(94<i>.</i>81 <i>| </i>77<i>.</i>62 <i>| </i>32<i>.</i>19)<i>, </i>(94<i>.</i>76 <i>| </i>77<i>.</i>52 <i>| </i>32<i>.</i>19)] 100<i>, </i>000</nobr></div>
+<div style="position:absolute;top:3025;left:264"><nobr>104-30-4-1</nobr></div>
+<div style="position:absolute;top:3025;left:377"><nobr>[(97<i>.</i>04 <i>| </i>82<i>.</i>84 <i>| </i>36<i>.</i>25)<i>, </i>(95<i>.</i>64 <i>| </i>79<i>.</i>63 <i>| </i>33<i>.</i>74)] 100<i>, </i>000</nobr></div>
+<div style="position:absolute;top:3042;left:276"><nobr>104-14</nobr></div>
+<div style="position:absolute;top:3042;left:377"><nobr>[(84<i>.</i>76 <i>| </i>63<i>.</i>75 <i>| </i>26<i>.</i>72)<i>, </i>(84<i>.</i>72 <i>| </i>63<i>.</i>28 <i>| </i>24<i>.</i>79)] 100<i>, </i>000</nobr></div>
+<div style="position:absolute;top:3059;left:267"><nobr>104-33-14</nobr></div>
+<div style="position:absolute;top:3059;left:377"><nobr>[(93<i>.</i>59 <i>| </i>76<i>.</i>96 <i>| </i>35<i>.</i>61)<i>, </i>(93<i>.</i>58 <i>| </i>76<i>.</i>23 <i>| </i>31<i>.</i>82)] 100<i>, </i>000</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:3111;left:202"><nobr>without hidden neurons - (26x4)-1, accomplished result [(75<i>.</i>86 <i>| </i>51<i>.</i>63 <i>| </i>18<i>.</i>37),</nobr></div>
+<div style="position:absolute;top:3129;left:202"><nobr>(75<i>.</i>90 <i>| </i>51<i>.</i>78 <i>| </i>18<i>.</i>56)].</nobr></div>
+<div style="position:absolute;top:3147;left:225"><nobr>More complex network - (26x4)-(13x4)-(7x4)-13-1, presented in Fig. 1(a),</nobr></div>
+<div style="position:absolute;top:3165;left:202"><nobr>yielded much better results: [(96<i>.</i>02 <i>| </i>80<i>.</i>14 <i>| </i>33<i>.</i>57), (93<i>.</i>87 <i>| </i>75<i>.</i>70 <i>| </i>31<i>.</i>04)].</nobr></div>
+<div style="position:absolute;top:3182;left:202"><nobr>Comparably good results were also accomplished by simpler network without</nobr></div>
+<div style="position:absolute;top:3200;left:202"><nobr>the two last hidden layers, i.e. (26x4)-(13x4)-1: [(94<i>.</i>77 <i>| </i>77<i>.</i>45 <i>| </i>31<i>.</i>91), (94<i>.</i>77 <i>|</i></nobr></div>
+<div style="position:absolute;top:3218;left:202"><nobr>77<i>.</i>50 <i>| </i>32<i>.</i>05)].</nobr></div>
+<div style="position:absolute;top:3236;left:225"><nobr>In the other way of coding a deal each card had its own input neuron assigned,</nobr></div>
+<div style="position:absolute;top:3254;left:202"><nobr>which input value denoted the hand containing this card. The hands were coded</nobr></div>
+<div style="position:absolute;top:3272;left:202"><nobr>as follows: <i>N </i>: 1<i>.</i>0, <i>S </i>: 0<i>.</i>8, <i>W </i>: <i>−</i>1<i>.</i>0, <i>E </i>: <i>−</i>0<i>.</i>8. The following order of cards</nobr></div>
+<div style="position:absolute;top:3290;left:202"><nobr>was used: 2<i>S </i>(two <i>Spades</i>), 3<i>S</i>, 4<i>S</i>, <i>...</i>, <i>KS </i>(king of <i>Spades</i>), <i>AS </i>and so on for</nobr></div>
+<div style="position:absolute;top:3308;left:202"><nobr><i>Hearts</i>, <i>Diamonds </i>and <i>Clubs </i>(other orders were also tested, but no significant</nobr></div>
+<div style="position:absolute;top:3326;left:202"><nobr>difference in results was observed). The simplest neural network without hidden</nobr></div>
+<div style="position:absolute;top:3344;left:202"><nobr>neurons, i.e. 52-1 accomplished the result [(94<i>.</i>17 <i>| </i>76<i>.</i>22 <i>| </i>31<i>.</i>06), (94<i>.</i>15 <i>| </i>76<i>.</i>15 <i>|</i></nobr></div>
+<div style="position:absolute;top:3362;left:202"><nobr>31<i>.</i>29)]. Adding one hidden layer: 52-25-1 improved the result to [(96<i>.</i>27 <i>| </i>81<i>.</i>02 <i>|</i></nobr></div>
+<div style="position:absolute;top:3380;left:202"><nobr>34<i>.</i>60)<i>, </i>(95<i>.</i>81 <i>| </i>79<i>.</i>95 <i>| </i>34<i>.</i>02)].</nobr></div>
+<div style="position:absolute;top:3398;left:225"><nobr>A slight modification of the above way of coding a deal was done by extending</nobr></div>
+<div style="position:absolute;top:3416;left:202"><nobr>the input representation to 104 neurons. The first 52 input neurons represented</nobr></div>
+<div style="position:absolute;top:3434;left:202"><nobr>assignment to a pair (value 1<i>.</i>0 for <i>NS </i>pair and <i>−</i>1<i>.</i>0 for <i>WE</i>), and the other</nobr></div>
+<div style="position:absolute;top:3451;left:202"><nobr>52 ones represented a hand in a pair (1<i>.</i>0 for <i>N </i>or <i>W </i>and <i>−</i>1<i>.</i>0 for <i>S </i>or <i>E</i>).</nobr></div>
+<div style="position:absolute;top:3469;left:202"><nobr>The simplest network: 104-1 accomplished the result [(94<i>.</i>81 <i>| </i>77<i>.</i>62 <i>| </i>32<i>.</i>19),</nobr></div>
+<div style="position:absolute;top:3487;left:202"><nobr>(94<i>.</i>76 <i>| </i>77<i>.</i>52 <i>| </i>32<i>.</i>19)], and two-hidden layer network 104<i>−</i>30<i>−</i>4<i>−</i>1, presented</nobr></div>
+<div style="position:absolute;top:3505;left:202"><nobr>in Fig. 1(b), yielded the result [(97<i>.</i>04 <i>| </i>82<i>.</i>84 <i>| </i>36<i>.</i>25), (95<i>.</i>64 <i>| </i>79<i>.</i>63 <i>| </i>33<i>.</i>74)].</nobr></div>
+<div style="position:absolute;top:3549;left:202"><nobr><b>4.2 The Way of Coding the Number of Tricks</b></nobr></div>
+<div style="position:absolute;top:3577;left:202"><nobr>The first approach to coding the number of tricks was the use of a linear trans-</nobr></div>
+<div style="position:absolute;top:3595;left:202"><nobr>formation from integer values: 0<i>,..., </i>13 to the range of real values [0<i>.</i>1<i>, </i>0<i>.</i>9].</nobr></div>
+<div style="position:absolute;top:3613;left:225"><nobr>Alternative way of coding consisted in providing one output neuron per each</nobr></div>
+<div style="position:absolute;top:3631;left:202"><nobr>possible number of tricks, i.e. a total of 14 output neurons. Here the idea was</nobr></div>
+<div style="position:absolute;top:3649;left:202"><nobr>to treat the prediction problem as the type of pattern classification/clustering</nobr></div>
+<div style="position:absolute;top:3667;left:202"><nobr>problem with only one output being active. During training value 1<i>.</i>0 was used</nobr></div>
+<div style="position:absolute;top:3685;left:202"><nobr>to indicate the correct output class (number of tricks), and 0<i>.</i>0 (or <i>−</i>1<i>.</i>0) to</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:3964;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="4"><b>Page 4</b></a></font></td></tr></tbody></table></div><font size="3" color="#231f20" face="Times"><span style="font-size:11px;font-family:Times;color:#231f20">
+<div style="position:absolute;top:4254;left:239"><nobr>26x4</nobr></div>
+<div style="position:absolute;top:4235;left:241"><nobr>13x4</nobr></div>
+<div style="position:absolute;top:4216;left:255"><nobr>7x4</nobr></div>
+<div style="position:absolute;top:4188;left:331"><nobr>13</nobr></div>
+<div style="position:absolute;top:4164;left:381"><nobr>1</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:4290;left:371"><nobr>(a)</nobr></div>
+</span></font>
+<font size="3" color="#231f20" face="Times"><span style="font-size:11px;font-family:Times;color:#231f20">
+<div style="position:absolute;top:4254;left:583"><nobr>104</nobr></div>
+<div style="position:absolute;top:4235;left:598"><nobr>30</nobr></div>
+<div style="position:absolute;top:4216;left:618"><nobr>4</nobr></div>
+<div style="position:absolute;top:4196;left:629"><nobr>1</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:4290;left:620"><nobr>(b)</nobr></div>
+<div style="position:absolute;top:4323;left:326"><nobr><b>Fig. 1. </b>Sample neural network architectures.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:4373;left:202"><nobr>represent the other (incorrect) output classes. The simplest network: 104-14</nobr></div>
+<div style="position:absolute;top:4391;left:202"><nobr>accomplished the result [(84<i>.</i>76 <i>| </i>63<i>.</i>75 <i>| </i>26<i>.</i>72), (84<i>.</i>72 <i>| </i>63<i>.</i>28 <i>| </i>24<i>.</i>79)]. Adding</nobr></div>
+<div style="position:absolute;top:4409;left:202"><nobr>one hidden layer: 104-33-14 improved the results significantly to [(92<i>.</i>70 <i>| </i>74<i>.</i>21 <i>|</i></nobr></div>
+<div style="position:absolute;top:4427;left:202"><nobr>34<i>.</i>85), (92<i>.</i>54 <i>| </i>73<i>.</i>74 <i>| </i>29<i>.</i>78)] and [(93<i>.</i>59 <i>| </i>76<i>.</i>96 <i>| </i>35<i>.</i>61), (93<i>.</i>58 <i>| </i>76<i>.</i>23 <i>| </i>31<i>.</i>82)],</nobr></div>
+<div style="position:absolute;top:4445;left:202"><nobr>resp. for the case of using <i>−</i>1<i>.</i>0 and 0<i>.</i>0 to represent incorrect outputs in the</nobr></div>
+<div style="position:absolute;top:4463;left:202"><nobr>training phase.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:4505;left:202"><nobr><b>5 Analysis of Results</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:4540;left:202"><nobr>The number of iterations required to learn the training set without overfitting</nobr></div>
+<div style="position:absolute;top:4558;left:202"><nobr>depended mostly on the way of coding a deal. The networks with coding (26x4)</nobr></div>
+<div style="position:absolute;top:4576;left:202"><nobr>needed a few tens of thousands iterations, and networks with coding by cards</nobr></div>
+<div style="position:absolute;top:4593;left:202"><nobr>assignment (52 or 104) only several hundred ones.</nobr></div>
+<div style="position:absolute;top:4611;left:225"><nobr>Results obtained for various input codings and neural architectures described</nobr></div>
+<div style="position:absolute;top:4629;left:202"><nobr>in section 4 are summarized in Table 1. The best results were accomplished by</nobr></div>
+<div style="position:absolute;top:4647;left:202"><nobr>networks with coding a deal by card assignment, but results achieved for the</nobr></div>
+<div style="position:absolute;top:4665;left:202"><nobr>other coding are only slightly worse. The conclusion drawn from the table could</nobr></div>
+<div style="position:absolute;top:4683;left:202"><nobr>be, that achieving the results at the level of (96 <i>| </i>80 <i>| </i>34) on the testing set seems</nobr></div>
+<div style="position:absolute;top:4701;left:202"><nobr>to be a difficult task. At first glance, the result of 34% of the faultless prediction</nobr></div>
+<div style="position:absolute;top:4719;left:202"><nobr>may seem discouraging. However it must be emphasized, that neural networks</nobr></div>
+<div style="position:absolute;top:4737;left:202"><nobr>were trained using information about deals only. Actually, no information about</nobr></div>
+<div style="position:absolute;top:4755;left:202"><nobr>the rules of the play was explicitly provided. In particular, no information about</nobr></div>
+<div style="position:absolute;top:4773;left:202"><nobr>some nuances of the play, e.g. finesses or squeezes was coded in the input. Only</nobr></div>
+<div style="position:absolute;top:4791;left:202"><nobr>cards in hands and numbers of tricks to be taken were presented in the training</nobr></div>
+<div style="position:absolute;top:4809;left:202"><nobr>data.</nobr></div>
+<div style="position:absolute;top:4850;left:202"><nobr><b>5.1 Simple Estimator of the Number of Tricks</b></nobr></div>
+<div style="position:absolute;top:4876;left:202"><nobr>To have a point of reference very simple, naive estimator of the number of tricks</nobr></div>
+<div style="position:absolute;top:4894;left:202"><nobr>was proposed. It was based on Work point count for the pair <i>NS </i>(ace - 4 points,</nobr></div>
+<div style="position:absolute;top:4912;left:202"><nobr>king - 3, queen - 2, jack - 1; total number of points in a deal - 40). The number of</nobr></div>
+<div style="position:absolute;top:4930;left:202"><nobr>tricks to take by <i>NS </i>was estimated by (13<i>/</i>40) <i>∗ points of NS</i>. This estimator</nobr></div>
+<div style="position:absolute;top:4948;left:202"><nobr>for the testing set of 100,000 deals achieved the result of (86<i>.</i>19 <i>| </i>61<i>.</i>32 <i>| </i>22<i>.</i>52).</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:5227;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="5"><b>Page 5</b></a></font></td></tr></tbody></table></div><font size="2" color="#231f20" face="Times"><span style="font-size:9px;font-family:Times;color:#231f20">
+<div style="position:absolute;top:5464;left:245"><nobr>ª</nobr></div>
+<div style="position:absolute;top:5474;left:245"><nobr>©</nobr></div>
+<div style="position:absolute;top:5484;left:245"><nobr>¨</nobr></div>
+<div style="position:absolute;top:5494;left:245"><nobr>§</nobr></div>
+<div style="position:absolute;top:5464;left:258"><nobr>A1085432</nobr></div>
+<div style="position:absolute;top:5474;left:258"><nobr>4</nobr></div>
+<div style="position:absolute;top:5484;left:258"><nobr>J32</nobr></div>
+<div style="position:absolute;top:5494;left:258"><nobr>K 9</nobr></div>
+<div style="position:absolute;top:5421;left:317"><nobr>ª</nobr></div>
+<div style="position:absolute;top:5432;left:317"><nobr>©</nobr></div>
+<div style="position:absolute;top:5442;left:317"><nobr>¨</nobr></div>
+<div style="position:absolute;top:5452;left:317"><nobr>§</nobr></div>
+<div style="position:absolute;top:5421;left:330"><nobr>Q 6</nobr></div>
+<div style="position:absolute;top:5432;left:330"><nobr>AJ2</nobr></div>
+<div style="position:absolute;top:5442;left:330"><nobr>Q98764</nobr></div>
+<div style="position:absolute;top:5452;left:330"><nobr>J 10</nobr></div>
+<div style="position:absolute;top:5464;left:372"><nobr>ª</nobr></div>
+<div style="position:absolute;top:5474;left:372"><nobr>©</nobr></div>
+<div style="position:absolute;top:5484;left:372"><nobr>¨</nobr></div>
+<div style="position:absolute;top:5494;left:372"><nobr>§</nobr></div>
+<div style="position:absolute;top:5464;left:385"><nobr>K J</nobr></div>
+<div style="position:absolute;top:5474;left:385"><nobr>953</nobr></div>
+<div style="position:absolute;top:5484;left:385"><nobr>10 5</nobr></div>
+<div style="position:absolute;top:5494;left:385"><nobr>AQ8643</nobr></div>
+<div style="position:absolute;top:5504;left:317"><nobr>ª</nobr></div>
+<div style="position:absolute;top:5515;left:317"><nobr>©</nobr></div>
+<div style="position:absolute;top:5525;left:317"><nobr>¨</nobr></div>
+<div style="position:absolute;top:5535;left:317"><nobr>§</nobr></div>
+<div style="position:absolute;top:5504;left:330"><nobr>9 7</nobr></div>
+<div style="position:absolute;top:5515;left:330"><nobr>KQ10876</nobr></div>
+<div style="position:absolute;top:5525;left:330"><nobr>A K</nobr></div>
+<div style="position:absolute;top:5535;left:330"><nobr>752</nobr></div>
+<div style="position:absolute;top:5469;left:338"><nobr>N</nobr></div>
+<div style="position:absolute;top:5479;left:327"><nobr>W E</nobr></div>
+<div style="position:absolute;top:5489;left:339"><nobr>S</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:5560;left:328"><nobr>(a)</nobr></div>
+</span></font>
+<font size="2" color="#231f20" face="Times"><span style="font-size:9px;font-family:Times;color:#231f20">
+<div style="position:absolute;top:5459;left:488"><nobr>ª</nobr></div>
+<div style="position:absolute;top:5470;left:488"><nobr>©</nobr></div>
+<div style="position:absolute;top:5480;left:488"><nobr>¨</nobr></div>
+<div style="position:absolute;top:5491;left:488"><nobr>§</nobr></div>
+<div style="position:absolute;top:5459;left:502"><nobr>A1054</nobr></div>
+<div style="position:absolute;top:5470;left:502"><nobr>7</nobr></div>
+<div style="position:absolute;top:5480;left:502"><nobr>A</nobr></div>
+<div style="position:absolute;top:5491;left:502"><nobr>AK98542</nobr></div>
+<div style="position:absolute;top:5414;left:564"><nobr>ª</nobr></div>
+<div style="position:absolute;top:5425;left:564"><nobr>©</nobr></div>
+<div style="position:absolute;top:5435;left:564"><nobr>¨</nobr></div>
+<div style="position:absolute;top:5446;left:564"><nobr>§</nobr></div>
+<div style="position:absolute;top:5414;left:578"><nobr>QJ9732</nobr></div>
+<div style="position:absolute;top:5425;left:578"><nobr>AKJ103</nobr></div>
+<div style="position:absolute;top:5435;left:578"><nobr>5</nobr></div>
+<div style="position:absolute;top:5446;left:578"><nobr>7</nobr></div>
+<div style="position:absolute;top:5459;left:622"><nobr>ª</nobr></div>
+<div style="position:absolute;top:5470;left:622"><nobr>©</nobr></div>
+<div style="position:absolute;top:5480;left:622"><nobr>¨</nobr></div>
+<div style="position:absolute;top:5491;left:622"><nobr>§</nobr></div>
+<div style="position:absolute;top:5459;left:637"><nobr>K 6</nobr></div>
+<div style="position:absolute;top:5470;left:637"><nobr>964</nobr></div>
+<div style="position:absolute;top:5480;left:637"><nobr>K9743</nobr></div>
+<div style="position:absolute;top:5491;left:637"><nobr>Q 10 6</nobr></div>
+<div style="position:absolute;top:5502;left:564"><nobr>ª</nobr></div>
+<div style="position:absolute;top:5512;left:564"><nobr>©</nobr></div>
+<div style="position:absolute;top:5523;left:564"><nobr>¨</nobr></div>
+<div style="position:absolute;top:5534;left:564"><nobr>§</nobr></div>
+<div style="position:absolute;top:5502;left:578"><nobr>8</nobr></div>
+<div style="position:absolute;top:5512;left:578"><nobr>Q852</nobr></div>
+<div style="position:absolute;top:5523;left:578"><nobr>QJ10862</nobr></div>
+<div style="position:absolute;top:5534;left:578"><nobr>J 3</nobr></div>
+<div style="position:absolute;top:5464;left:586"><nobr>N</nobr></div>
+<div style="position:absolute;top:5475;left:574"><nobr>W E</nobr></div>
+<div style="position:absolute;top:5485;left:587"><nobr>S</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:5560;left:572"><nobr>(b)</nobr></div>
+<div style="position:absolute;top:5593;left:397"><nobr><b>Fig. 2. </b>Sample deals.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:5651;left:202"><nobr><b>5.2 Hand Patterns</b></nobr></div>
+<div style="position:absolute;top:5692;left:202"><nobr>Work point count is widely used to estimate the power of a hand, but one of</nobr></div>
+<div style="position:absolute;top:5710;left:202"><nobr>its most important drawbacks is omitting hand patterns. Short and long suits</nobr></div>
+<div style="position:absolute;top:5728;left:202"><nobr>are very important during the play. Table 2 presents medium values of standard</nobr></div>
+<div style="position:absolute;top:5746;left:202"><nobr>deviation values for hand suits’ lengths. A general conclusion, which can be</nobr></div>
+<div style="position:absolute;top:5764;left:202"><nobr>drawn from this statistics is that true values of very short and very long suits</nobr></div>
+<div style="position:absolute;top:5782;left:202"><nobr>are quite difficult to be estimated by neural networks used in the experiments.</nobr></div>
+<div style="position:absolute;top:5802;left:225"><nobr>On the other hand, comparing the results of naive estimator (see Section 5.1)</nobr></div>
+<div style="position:absolute;top:5820;left:202"><nobr>with the ones presented in Table 1 indicates that the networks definitely go</nobr></div>
+<div style="position:absolute;top:5838;left:202"><nobr>beyond the naive Work point - based estimation of the hand’s strength.</nobr></div>
+<div style="position:absolute;top:5894;left:202"><nobr><b>5.3 Sample Deals</b></nobr></div>
+<div style="position:absolute;top:5935;left:202"><nobr>In this section two examples of sample deals from [3] are presented - see Fig. 2.</nobr></div>
+<div style="position:absolute;top:5955;left:225"><nobr>The first deal (Fig. 2(a)) is the deal for which the number of tricks taken by</nobr></div>
+<div style="position:absolute;top:5973;left:202"><nobr><i>NS </i>in notrump play can be either 12 (when <i>N </i>or <i>S </i>makes defender’s lead) or</nobr></div>
+<div style="position:absolute;top:5991;left:202"><nobr>0 (when the opponent player makes the defender’s lead). The network’s output</nobr></div>
+<div style="position:absolute;top:6009;left:202"><nobr>was 6. Since in all data presented in the experiments <i>W </i>always made a defender’s</nobr></div>
+<div style="position:absolute;top:6027;left:202"><nobr>lead the expected result was 0. Therefore the network highly overestimated hands</nobr></div>
+<div style="position:absolute;top:6045;left:202"><nobr><i>NS</i>. Certainly the naive estimator also made a big mistake, it claimed 7 tricks</nobr></div>
+<div style="position:absolute;top:6062;left:202"><nobr>for <i>NS</i>. This example shows that in solving even a double dummy problem there</nobr></div>
+<div style="position:absolute;top:6080;left:202"><nobr>may be several nuances that should be carefully taken into account, e.g. defining</nobr></div>
+<div style="position:absolute;top:6098;left:202"><nobr>the hand that makes defender’s lead.</nobr></div>
+<div style="position:absolute;top:6118;left:225"><nobr>The second sample deal (Fig. 2(b)) shows that long suits not always caused</nobr></div>
+<div style="position:absolute;top:6136;left:202"><nobr>problems for trained networks. The network predicted 2 tricks for <i>NS </i>when <i>W</i></nobr></div>
+<div style="position:absolute;top:6154;left:202"><nobr>makes a defender’s lead, which is a correct value. Naive estimator claimed 6</nobr></div>
+<div style="position:absolute;top:6172;left:202"><nobr>tricks for <i>NS</i>.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:6490;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="6"><b>Page 6</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:6661;left:202"><nobr><b>Table 2. </b>Mean values of standard deviations for hand suits’ lengths (columns <i>M</i>) in the</nobr></div>
+<div style="position:absolute;top:6681;left:202"><nobr>training set for (26x4)-(13x4)-(7x4)-13-1 network composed of 10<i>, </i>000 deals. Columns</nobr></div>
+<div style="position:absolute;top:6694;left:202"><nobr><i>D </i>represent the difference between network’s output and the target number of tricks.</nobr></div>
+<div style="position:absolute;top:6725;left:284"><nobr><i>D </i>Number of deals</nobr></div>
+<div style="position:absolute;top:6725;left:426"><nobr><i>M</i></nobr></div>
+<div style="position:absolute;top:6725;left:468"><nobr><i>D </i>Number of deals</nobr></div>
+<div style="position:absolute;top:6725;left:607"><nobr><i>M</i></nobr></div>
+<div style="position:absolute;top:6742;left:281"><nobr><i>−</i>4</nobr></div>
+<div style="position:absolute;top:6746;left:346"><nobr>23</nobr></div>
+<div style="position:absolute;top:6746;left:406"><nobr>1<i>, </i>803186 1</nobr></div>
+<div style="position:absolute;top:6746;left:520"><nobr>2303</nobr></div>
+<div style="position:absolute;top:6746;left:587"><nobr>1<i>, </i>379000</nobr></div>
+<div style="position:absolute;top:6759;left:281"><nobr><i>−</i>3</nobr></div>
+<div style="position:absolute;top:6763;left:342"><nobr>150</nobr></div>
+<div style="position:absolute;top:6763;left:406"><nobr>1<i>, </i>577670 2</nobr></div>
+<div style="position:absolute;top:6763;left:523"><nobr>754</nobr></div>
+<div style="position:absolute;top:6763;left:587"><nobr>1<i>, </i>467983</nobr></div>
+<div style="position:absolute;top:6776;left:281"><nobr><i>−</i>2</nobr></div>
+<div style="position:absolute;top:6780;left:342"><nobr>834</nobr></div>
+<div style="position:absolute;top:6780;left:406"><nobr>1<i>, </i>424109 3</nobr></div>
+<div style="position:absolute;top:6780;left:523"><nobr>178</nobr></div>
+<div style="position:absolute;top:6780;left:587"><nobr>1<i>, </i>611750</nobr></div>
+<div style="position:absolute;top:6793;left:281"><nobr><i>−</i>1</nobr></div>
+<div style="position:absolute;top:6797;left:339"><nobr>2354</nobr></div>
+<div style="position:absolute;top:6797;left:406"><nobr>1<i>, </i>353548 4</nobr></div>
+<div style="position:absolute;top:6797;left:527"><nobr>40</nobr></div>
+<div style="position:absolute;top:6797;left:587"><nobr>1<i>, </i>724390</nobr></div>
+<div style="position:absolute;top:6814;left:287"><nobr>0</nobr></div>
+<div style="position:absolute;top:6814;left:339"><nobr>3357</nobr></div>
+<div style="position:absolute;top:6814;left:406"><nobr>1<i>, </i>318973 5</nobr></div>
+<div style="position:absolute;top:6814;left:530"><nobr>6</nobr></div>
+<div style="position:absolute;top:6814;left:587"><nobr>1<i>, </i>607476</nobr></div>
+<div style="position:absolute;top:6831;left:470"><nobr>6</nobr></div>
+<div style="position:absolute;top:6831;left:530"><nobr>1</nobr></div>
+<div style="position:absolute;top:6831;left:587"><nobr>1<i>, </i>879716</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:6882;left:202"><nobr><b>6 Conclusions</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:6919;left:202"><nobr>In this piece of research the underlying assumption is to reduce human’s influ-</nobr></div>
+<div style="position:absolute;top:6937;left:202"><nobr>ence on neural networks to the minimum. This is the reason of avoiding special</nobr></div>
+<div style="position:absolute;top:6955;left:202"><nobr>preprocessing of deals. It seems to be reasonable to present to networks infor-</nobr></div>
+<div style="position:absolute;top:6973;left:202"><nobr>mation about short suits (e.g. humans add 2 points for a void and 1 point for</nobr></div>
+<div style="position:absolute;top:6991;left:202"><nobr>a singleton) but authors decided to let the networks discover this information</nobr></div>
+<div style="position:absolute;top:7009;left:202"><nobr>by themselves if it is really important. The difference between results of neural</nobr></div>
+<div style="position:absolute;top:7027;left:202"><nobr>networks and naive estimation of hands’ strengths shows, that neural networks</nobr></div>
+<div style="position:absolute;top:7045;left:202"><nobr>were able to notice hand patterns as important information. However statistics</nobr></div>
+<div style="position:absolute;top:7063;left:202"><nobr>presented in Table 2 show that there is still some room for improvement in this</nobr></div>
+<div style="position:absolute;top:7081;left:202"><nobr>area.</nobr></div>
+<div style="position:absolute;top:7099;left:225"><nobr>Based on the assumption that only raw data is presented to the network the</nobr></div>
+<div style="position:absolute;top:7117;left:202"><nobr>result of (95<i>.</i>81 <i>| </i>79<i>.</i>95 <i>| </i>34<i>.</i>02) on the test set achieved in the experiments looks</nobr></div>
+<div style="position:absolute;top:7134;left:202"><nobr>promising. Only in less than 5% of deals the network was wrong by more than</nobr></div>
+<div style="position:absolute;top:7152;left:202"><nobr>2 tricks.</nobr></div>
+<div style="position:absolute;top:7170;left:225"><nobr>Several other experiments with double dummy problem are planned. First of</nobr></div>
+<div style="position:absolute;top:7188;left:202"><nobr>all some other neural network architectures would be tested, e.g. Self-Organizing</nobr></div>
+<div style="position:absolute;top:7206;left:202"><nobr>Maps. There is also a need to test plays other than notrump.</nobr></div>
+<div style="position:absolute;top:7224;left:225"><nobr>In the next step of research only one hand will be fully presented along</nobr></div>
+<div style="position:absolute;top:7242;left:202"><nobr>with some incomplete information about other hands. This part of research will</nobr></div>
+<div style="position:absolute;top:7260;left:202"><nobr>simulate bidding. The last stage will be the play phase.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:7305;left:202"><nobr><b>References</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:7342;left:202"><nobr>1. Smith, S., Nau, D., Throop, T.: Computer bridge: A big win for ai planning. AI</nobr></div>
+<div style="position:absolute;top:7359;left:220"><nobr>Magazine <b>19 </b>(1998) 93–105</nobr></div>
+<div style="position:absolute;top:7375;left:202"><nobr>2. Ginsberg, M.: Gib: Imperfect information in a computationally challenging game.</nobr></div>
+<div style="position:absolute;top:7392;left:220"><nobr>Journal of Artificial Intelligence Research <b>14 </b>(2001) 303–358</nobr></div>
+<div style="position:absolute;top:7408;left:202"><nobr>3. Ginsberg, M. (http://www.cirl.uoregon.edu/ginsberg/gibresearch.html)</nobr></div>
+<div style="position:absolute;top:7424;left:202"><nobr>4. (http://www-ra.informatik.uni-tuebingen.de/software/JavaNNS/welcome e.html)</nobr></div>
+<div style="position:absolute;top:7441;left:202"><nobr>5. Riedmiller, M., Braun, H.: A fast adaptive learning algorithm. Technical report,</nobr></div>
+<div style="position:absolute;top:7457;left:220"><nobr>University Karslruhe, Germany (1992)</nobr></div>
+</span></font>
+
+
+</div></body></html>
